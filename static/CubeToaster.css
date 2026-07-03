@@ -2,8 +2,7 @@
 	display: block;
 }
 
-.reminder a {
+.reminder {
 	color: red;
 	font-weight: bold;
 }
-

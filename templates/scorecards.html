@@ -1,8 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
-    <p class="reminder">
-      <a href="https://www.worldcubeassociation.org/users/sign_in">Make sure you are logged into the WCA website first</a>
+    <h2>Instructions</h2>
+    <p>
+        <ul>
+            <li>
+                Fill out the form with the information you want to print on a scoresheet.
+            </li>
+            <li>
+                After hitting submit, it will create an HTML file that consists of one big scoresheet per page. It will not look like what you want until you try to print the page.
+            </li>
+            <li>
+                <strong>Print with 4 pages per sheet.</strong>
+            </li>
+        </ul>
     </p>
+    <h3>Notes</h3>
+    <p>
+        <ul>
+            <li>
+                You can inspect and change the font size in CSS if you want to make text bigger/smaller.
+            </li>
+            <li>
+                Competitor ID's are not currently supported but there is a space for it to the left of the event name.
+            </li>
+            <li>
+                Entering only ",,," (3 commas) in the last box will give you 4 blank scoresheets (1 sheet of blank scoresheets).
+            </li>
+        </ul>
+    </p>
+
+    <p class="reminder">
+      Only the list of names is required.
+    </p>
+
     <form method="POST" enctype="multipart/form-data" target="_blank">
         {{ form.hidden_tag() }}
 
@@ -11,11 +41,15 @@
         {% endfor %}
 
         <div class="form-group heat-form">
-            {{ form.compName.label }} {{ form.compName() }}  
+            {{ form.compName.label }} {{ form.compName() }}
         </div>
-        
+
         <div class="form-group heat-form">
             {{ form.roundNum.label }} {{ form.roundNum() }}
+        </div>
+
+        <div class="form-group heat-form">
+            {{ form.groupNum.label }} {{ form.groupNum() }}
         </div>
 
         <div class="form-group heat-form">
@@ -33,7 +67,8 @@
         <div class="form-group heat-form">
             {{ form.names.label }} {{ form.names() }}
         </div>
-        
+
         {{ form.submit() }}
     </form>
+
     {% endblock %}
