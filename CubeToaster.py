@@ -28,7 +28,12 @@ startHTML = '''
 
         @media print {
           table {
+            height: 99vh;
             page-break-after: always;
+          }
+
+          table:last-child {
+            page-break-after: auto;
           }
         }
 
